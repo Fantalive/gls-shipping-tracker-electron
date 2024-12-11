@@ -23,14 +23,14 @@ contextBridge.exposeInMainWorld('formatter', {
 		const formattedHistory = history?.map(
 			(item, index) => `
 				<tr>
-					<td scope="row">${item.time}</td>
-					<td scope="row">${item.date}</td>
-					<td scope="row">${item.address.city}</td>
-					<td scope="row">${item.address.countryName}</td>
-					<td scope="row">${item.address.countryCode}</td>
+					<td>${item.time}</td>
+					<td>${item.date}</td>
+					<td>${item.address.city}</td>
+					<td>${item.address.countryName}</td>
+					<td>${item.address.countryCode}</td>
 				</tr>
 			`
-		).join('') || '<tr><td colspan="4">No history available.</td></tr>';
+		).join(``) || '<tr><td colspan="2">No history available.</td></tr>';
 
 		// Format Details
 		const details = infos?.map((info) => `

@@ -3,7 +3,6 @@ const axios = require('axios');
 const path = require('path');
 
 let mainWindow;
-let interval = 60000; // Default to 1 minute
 let intervalId;
 
 function createWindow( width, height ) 
@@ -30,9 +29,6 @@ function createWindow( width, height )
 app.whenReady().then(() => {
 	//Height, Width
 	let { width, height } = screen.getPrimaryDisplay().workAreaSize
-
-	console.log( "Width: " + width + "Height: " + height )
-	//800, 600
   	createWindow( 800, height );
 
   app.on('activate', () => {
@@ -59,7 +55,8 @@ async function fetchGLSData(parcelNumber, postalCode)
             try {
                 console.log(`Fetching GLS data (Attempt ${retryCount + 1})...`);
                 const response = await axios.get(url);
-                console.log('API response:', response.data);
+                console.log('API response:', "Grabbed Successfully.");
+				process.stdout.write('\x1Bc')
 
                 mainWindow.webContents.send('gls-data', response.data);
                 mainWindow.webContents.send('update-status', { success: true, timestamp: new Date().toISOString() });
