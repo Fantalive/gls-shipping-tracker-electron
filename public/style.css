@@ -5,21 +5,19 @@ body {
 	color: var(--text-color);
 }
 
-/* Custom styling for buttons and inputs */
 input[type="text"],
 button,
 .selectpicker {
-  width: 100%; /* Make inputs and buttons take full width */
-  display: block; /* Ensure full width */
-  margin-bottom: 10px; /* Space them apart for better aesthetics */
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
 }
 
-/* Responsive styles for buttons and inputs */
 @media (max-width: 768px) {
   input[type="text"],
   button,
   .selectpicker {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 }
 
@@ -68,8 +66,7 @@ button,
 	font-size: 0.9rem;
 	padding: 5px;
 	border-radius: 50%;
-	background-color: #e0e0e0;
-	color: #000;
+	color: #fff; /* Ensure text color is white for better contrast in dark mode */
 }
 
 .progress-step.complete .circle {
@@ -106,15 +103,14 @@ h3 {
 	font-size: 1.2rem;
 }
 
-/* Custom styling for tables */
 .parcel-history-table,
 .parcel-details-table,
 .parcel-references-table {
 	width: 100%;
-	max-width: 800px; /* Set a max-width for the table */
-	margin: 0 auto; /* Center the table */
-	border-collapse: collapse; /* Collapse borders for cleaner look */
-	margin-bottom: 20px; /* Add some spacing between tables */
+	max-width: 800px;
+	margin: 0 auto;
+	border-collapse: collapse;
+	margin-bottom: 20px;
 }
 
 .parcel-history-table th,
@@ -124,22 +120,22 @@ h3 {
 .parcel-details-table td,
 .parcel-references-table td {
 	padding: 8px;
-	text-align: center; /* Center align table cells */
-	border: 1px solid #ddd; /* Light border for cells */
+	text-align: center;
+	border: 1px solid #ddd;
 }
 
 .parcel-history-table th,
 .parcel-details-table th,
 .parcel-references-table th {
-	background-color: #f2f2f2; /* Light gray background for headers */
+	background-color: #f2f2f2;
 	font-weight: bold;
 }
 
 .parcel-history-table td,
 .parcel-details-table td,
 .parcel-references-table td {
-	text-align: left; /* Align text to the left for details and references */
-	padding-left: 20px; /* Add padding to cell content for better readability */
+	text-align: left;
+	padding-left: 20px;
 }
 
 /* Responsive styles */
@@ -175,10 +171,10 @@ h3 {
 	.parcel-history-table td,
 	.parcel-details-table td,
 	.parcel-references-table td {
-		text-align: left; /* Left-align text for smaller screens */
-		border-bottom: none; /* Remove bottom border for last row */
-		border-right: none; /* Remove right border for last column */
-		border-left: 1px solid #ddd; /* Add border to last column */
+		text-align: left;
+		border-bottom: none;
+		border-right: none;
+		border-left: 1px solid #ddd;
 		padding-right: 8px;
 	}
 

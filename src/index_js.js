@@ -48,6 +48,53 @@ document.addEventListener('DOMContentLoaded', () => {
     let isTracking = false;
     let retrying = false;
 
+	function loadSavedSettings() {
+        // Load theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeToggle.checked = savedTheme === 'dark'; // Sync toggle state
+        }
+
+        // Load interval
+        const savedInterval = localStorage.getItem('interval');
+        if (savedInterval && intervalInput) {
+            intervalInput.value = parseInt(savedInterval, 10) / 60000; // Convert ms to minutes for display
+        }
+    }
+
+
+    // Save settings (including interval) to local storage
+    function saveSettings() {
+        // Save theme
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        localStorage.setItem('theme', currentTheme);
+
+        // Save interval
+        if (intervalInput) {
+            const intervalValue = parseInt(intervalInput.value, 10) * 60000; // Convert minutes to ms
+            localStorage.setItem('interval', intervalValue);
+        }
+    }
+
+    // Save theme preference to local storage
+    function saveThemePreference(theme) {
+        localStorage.setItem('theme', theme);
+    }
+
+    // Load theme preference from local storage
+    function loadThemePreference() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        rootElement.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+    }
+
+    // Load saved theme on page load
+    loadThemePreference();
+
+	// Load saved settings on page load
+    loadSavedSettings();
+
     // Clear previous tracking data
     function clearTrackingData() {
         if (resultsElement) {
@@ -168,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const interval = parseInt(intervalInput.value, 10) * 60000;
 
             if (parcelNumber && postalCode && interval) {
+				saveSettings(); // Save interval to local storage
                 saveParcel(parcelNumber, postalCode);
                 window.electronAPI.startPolling({
                     parcelNumber,
@@ -218,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         rootElement.setAttribute('data-theme', newTheme);
         themeToggle.textContent = newTheme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+        saveThemePreference(newTheme);
     });
 
     // Electron API event listeners
