@@ -1,0 +1,190 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+/* Custom styling for buttons and inputs */
+input[type="text"],
+button,
+.selectpicker {
+  width: 100%; /* Make inputs and buttons take full width */
+  display: block; /* Ensure full width */
+  margin-bottom: 10px; /* Space them apart for better aesthetics */
+}
+
+/* Responsive styles for buttons and inputs */
+@media (max-width: 768px) {
+  input[type="text"],
+  button,
+  .selectpicker {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+#results {
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	border-radius: 5px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+:root {
+	--background-color: #ffffff;
+	--text-color: #000000;
+	--progress-bg: #e0e0e0;
+	--progress-color: #007bff;
+}
+
+[data-theme="dark"] {
+	--background-color: #1e1e1e;
+	--text-color: #f0f0f0;
+	--progress-bg: #444;
+	--progress-color: #ff9800;
+}
+
+#progress-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: var(--progress-bg);
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50px;
+	text-align: center;
+	font-size: 0.9rem;
+	padding: 5px;
+	border-radius: 50%;
+	background-color: #e0e0e0;
+	color: #000;
+}
+
+.progress-step.complete .circle {
+	background-color: green;
+	color: #fff;
+}
+
+.progress-step.current .circle {
+	background-color: blue;
+	color: #fff;
+}
+
+.circle {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	margin-bottom: 5px;
+	background-color: var(--progress-bg);
+	color: var(--progress-color);
+}
+
+.label {
+	font-size: 0.8rem;
+}
+
+h3 {
+	color: var(--progress-color);
+	margin-top: 15px;
+	font-size: 1.2rem;
+}
+
+/* Custom styling for tables */
+.parcel-history-table,
+.parcel-details-table,
+.parcel-references-table {
+	width: 100%;
+	max-width: 800px; /* Set a max-width for the table */
+	margin: 0 auto; /* Center the table */
+	border-collapse: collapse; /* Collapse borders for cleaner look */
+	margin-bottom: 20px; /* Add some spacing between tables */
+}
+
+.parcel-history-table th,
+.parcel-details-table th,
+.parcel-references-table th,
+.parcel-history-table td,
+.parcel-details-table td,
+.parcel-references-table td {
+	padding: 8px;
+	text-align: center; /* Center align table cells */
+	border: 1px solid #ddd; /* Light border for cells */
+}
+
+.parcel-history-table th,
+.parcel-details-table th,
+.parcel-references-table th {
+	background-color: #f2f2f2; /* Light gray background for headers */
+	font-weight: bold;
+}
+
+.parcel-history-table td,
+.parcel-details-table td,
+.parcel-references-table td {
+	text-align: left; /* Align text to the left for details and references */
+	padding-left: 20px; /* Add padding to cell content for better readability */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	.parcel-history-table,
+	.parcel-details-table,
+	.parcel-references-table {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.parcel-history-table thead,
+	.parcel-details-table thead,
+	.parcel-references-table thead,
+	.parcel-history-table tbody,
+	.parcel-details-table tbody,
+	.parcel-references-table tbody {
+		display: block;
+		width: 100%;
+	}
+
+	.parcel-history-table tr,
+	.parcel-details-table tr,
+	.parcel-references-table tr {
+		margin-bottom: 10px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.parcel-history-table th,
+	.parcel-details-table th,
+	.parcel-references-table th,
+	.parcel-history-table td,
+	.parcel-details-table td,
+	.parcel-references-table td {
+		text-align: left; /* Left-align text for smaller screens */
+		border-bottom: none; /* Remove bottom border for last row */
+		border-right: none; /* Remove right border for last column */
+		border-left: 1px solid #ddd; /* Add border to last column */
+		padding-right: 8px;
+	}
+
+	.parcel-history-table td,
+	.parcel-details-table td,
+	.parcel-references-table td {
+		border-top: 1px solid #ddd;
+	}
+}
